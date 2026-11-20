@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@theme {
+  --color-espresso: #2b1810;
+  --color-cacao: #3a2418;
+  --color-crema: #f5ebdd;
+  --color-dorado: #b08d57;
+  --color-bronce: #7a5a2e; /* dorado oscurecido: texto de acento sobre crema (contraste AA) */
+  --color-cobre: #c08060;
+  --color-negro: #0f0a07;
+  --color-jade: #3ba8a0; /* SOLO para el sello "Hecho en Honduras" */
+
+  --font-serif: var(--font-bodoni), "Playfair Display", Didot, Georgia, serif;
+  --font-sans: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+
+  --animate-marquee: marquee 40s linear infinite;
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background-color: var(--color-espresso);
+    color: var(--color-crema);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection {
+    background: var(--color-dorado);
+    color: var(--color-negro);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-dorado);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* Textura de papel muy ligera para las secciones crema (SVG en línea, sin peso extra). */
+@utility paper {
+  background-color: var(--color-crema);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .17 0 0 0 0 .09 0 0 0 0 .06 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  color: var(--color-espresso);
+}
+
+/* Marcador visible para el contenido que falta. */
+@utility pending {
+  font-style: italic;
+  opacity: 0.75;
+  text-decoration: underline dotted;
+  text-underline-offset: 3px;
+}
+
+.marquee-track:hover { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none !important; transform: none !important; }
+}
