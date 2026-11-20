@@ -20,7 +20,7 @@ Requiere Node 20 o más reciente (`npm run brand` usa Node 22.6+ porque ejecuta 
 
 1. Sube la carpeta a un repositorio de GitHub.
 2. En vercel.com → **Add New… → Project** → importa el repositorio. Vercel detecta Next.js solo; no hay que configurar nada.
-3. Cuando tengas el dominio final, cámbialo en `SITE_URL` (`lib/constants.ts`) para que Open Graph use la URL correcta.
+3. Sitio publicado en https://cafecho-web.vercel.app. Si cambias de dominio, actualiza `SITE_URL` en `lib/constants.ts`.
 
 ## Dónde editar
 

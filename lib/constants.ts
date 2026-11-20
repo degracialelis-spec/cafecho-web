@@ -18,8 +18,8 @@ export const DARK_CACAO_PERCENT = 60;
 /** Porcentaje de cacao de la línea con leche (dato del equipo). */
 export const MILK_CACAO_PERCENT = 60;
 
-/** URL pública del sitio (para metadata y Open Graph). TODO: poner el dominio final. */
-export const SITE_URL = "https://cafecho.vercel.app";
+/** URL pública del sitio (para metadata y Open Graph). */
+export const SITE_URL = "https://cafecho-web.vercel.app";
 
 /** Redes sociales. Deja tiktokUrl vacío para ocultar TikTok en el sitio. */
 export const SOCIAL = {
